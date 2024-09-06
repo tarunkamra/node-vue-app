@@ -1,0 +1,35 @@
+name: 10 Build pipeline
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  #name of job, free choice, could also give a name
+  build:
+    # required to fix an issue we had when test results failed because
+    # checks: write and pull-requests: write were needed
+    permissions:
+      contents: read
+      issues: read
+      checks: write
+      pull-requests: write
+    # runner
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Build
+      run: cd vite-project && npm install && npm run build
+
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Application-Binary
+        path: vite-project/dist/
