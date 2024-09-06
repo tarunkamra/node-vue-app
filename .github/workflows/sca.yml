@@ -11,7 +11,7 @@ jobs:
       matrix:
         os: [ "ubuntu-20.04" ] # [ "macos-latest", "windows-latest", "ubuntu-20.04" ]
         # Test once with explicit manifest_file, and once without
-        manifest_directory: [ "vite-project" ]
+        manifest_directory: [ "frontend" ]
     runs-on: ${{ matrix.os }}
     defaults:
       run:
