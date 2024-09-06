@@ -26,7 +26,7 @@ jobs:
         node-version: 18
 
     - name: Build
-      run: cd vite-project && npm install && ls -l 
+      run: cd frontend && npm install && npm run build
 
 
     - uses: actions/upload-artifact@v3
