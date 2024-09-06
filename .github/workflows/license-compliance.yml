@@ -19,6 +19,7 @@ jobs:
           approved-dependencies: |
                                  hamcrest,hamcrest-core,hamcrest-library
                                  junit-jupiter,junit-jupiter-api,junit-jupiter-engine,javax.annotation-api
+          base-path: frontend/
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2.2.0
         if: always()
